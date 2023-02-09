@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Hero, Results } from '../hero';
+import { Results } from '../hero';
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -11,7 +11,6 @@ export class DashboardComponent implements OnInit {
   input: string = '';
 
   suggestedHeroes: Results[] = [];
-  // showSuggestions: boolean = false;
 
   constructor(private heroService: HeroService) {}
   ngOnInit(): void {
@@ -22,7 +21,6 @@ export class DashboardComponent implements OnInit {
 
   sugerencias(input: string) {
     this.input = input;
-    // this.showSuggestions = true;
 
     this.heroService
       .searchHeroes(input)

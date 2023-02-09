@@ -1,9 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { debounceTime, Subject } from 'rxjs';
-import { Observable } from 'rxjs/internal/Observable';
-import { of } from 'rxjs/internal/observable/of';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
 
 @Component({
   selector: 'hero-search',
@@ -15,7 +11,7 @@ export class HeroSearchComponent implements OnInit{
 
   input: string = '';
 
-  constructor(private heroService: HeroService) {}
+  constructor() {}
 
   ngOnInit(): void {
     this.searchTerm.pipe(
