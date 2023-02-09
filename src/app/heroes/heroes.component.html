@@ -1,0 +1,44 @@
+<h2 class="text-2xl text-center text-white">Mis héroes</h2>
+<div>
+  <div
+    class="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-5"
+  >
+    <div
+      *ngFor="let heroeDeLaLista of heroes"
+      class="rounded overflow-hidden shadow-xs"
+    >
+      <a routerLink="/detail/{{ heroeDeLaLista.id }}"
+        ><img
+          class="w-[379px] h-[379px]"
+          src="{{ heroeDeLaLista.thumbnail.path }}.{{
+            heroeDeLaLista.thumbnail.extension
+          }}"
+          alt="{{ heroeDeLaLista.name }}"
+      /></a>
+      <div class="font-bold text-xl mb-2 text-white text-center">
+        {{heroeDeLaLista.id}} : {{ heroeDeLaLista.name }}
+      </div>
+    </div>
+  </div>
+  <div class="text-center text-xl">
+    <span class="text-blue-400 mr-5">{{ begin }} - {{ end }} of 1562</span>
+  </div>
+  <div class="text-center">
+    <button
+      [disabled]="offset < 20"
+      class="rounded-lg bg-orange-500 disabled:bg-gray-200 p-2 px-32"
+      (click)="anterior()"
+      routerLink="/heroes"
+    >
+      Anterior
+    </button>
+    <button
+      [disabled]="offset >= 1542"
+      class="rounded-lg bg-blue-500 disabled:bg-gray-200 m-3 p-2 px-32"
+      (click)="siguiente()"
+      routerLink="/heroes"
+    >
+      Siguiente
+    </button>
+  </div>
+</div>

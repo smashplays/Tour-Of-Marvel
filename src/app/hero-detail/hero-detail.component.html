@@ -1,0 +1,38 @@
+<div *ngFor="let hero of selectedHero">
+  <img
+    class="w-2/4 m-auto"
+    src="{{ hero.thumbnail.path }}.{{ hero.thumbnail.extension }}"
+    alt="{{ hero.name }}"
+  />
+  <h2 class="text-2xl text-center text-orange-500 mb-5">
+    {{ hero.name | titlecase }} details
+  </h2>
+  <div class="border border-white mb-5 text-center w-2/4 m-auto">
+    <p class="xl:text-2xl lg:text-xl md:text-lg sm:text-md text-white">
+      <span class="text-black">ID:</span> {{ hero.id }}
+    </p>
+    <p class="xl:text-2xl lg:text-xl md:text-lg sm:text-md text-white">
+      <span class="text-black">Name:</span> {{ hero.name }}
+    </p>
+    <p class="xl:text-2xl lg:text-xl md:text-lg sm:text-md text-white">
+      <span class="text-black">Comics:</span> {{ hero.comics.available }}
+    </p>
+    <p class="xl:text-2xl lg:text-xl md:text-lg sm:text-md text-white">
+      <span class="text-black">Series:</span> {{ hero.series.available }}
+    </p>
+    <p class="xl:text-2xl lg:text-xl md:text-lg sm:text-md text-white">
+      <span class="text-black">Stories:</span> {{ hero.stories.available }}
+    </p>
+    <p class="xl:text-2xl lg:text-xl md:text-lg sm:text-md text-white mb-5">
+      <span class="text-black">Events:</span> {{ hero.events.available }}
+    </p>
+  </div>
+  <div class="text-center">
+    <button
+      class="bg-orange-500 text-center xl:px-24 lg:px-20 md:px-16 sm:px-12 p-2 text-white rounded rounded-lg mb-5"
+      (click)="back()"
+    >
+      Back
+    </button>
+  </div>
+</div>

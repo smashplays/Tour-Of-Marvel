@@ -1,0 +1,16 @@
+<label
+  for="inputSearch"
+  class="mb-2 text-sm font-medium text-gray-900 sr-only text-black"
+  >Buscar por nombre</label
+>
+<div class="">
+  <input
+    type="text"
+    id="search"
+    name="search"
+    [(ngModel)]="input"
+    (input)="search()"
+    class="w-3/4 block m-auto p-4 pl-10 text-sm text-white border border-white rounded-lg bg-gray-900"
+    placeholder="Buscar nombre..."
+  />
+</div>
