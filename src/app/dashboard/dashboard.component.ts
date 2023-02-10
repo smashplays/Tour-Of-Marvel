@@ -8,8 +8,8 @@ import { HeroService } from '../hero.service';
 })
 export class DashboardComponent implements OnInit {
   heroes: Results[] = [];
+  
   input: string = '';
-
   suggestedHeroes: Results[] = [];
 
   constructor(private heroService: HeroService) {}

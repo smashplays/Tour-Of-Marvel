@@ -8,10 +8,8 @@ import { Hero, Results } from './hero';
 })
 export class HeroService {
   private heroesURL: string = 'http://gateway.marvel.com/v1/public/characters';
-
-  private ts: string = '?ts=1';
-  private apikey: string = '&apikey=1beb8e7f6c444074f09f597377c2de2e';
-  private hash: string = '&hash=b56f7652bfdca8422b2552da4819dc2f';
+  private params: string =
+    '?ts=1&apikey=1beb8e7f6c444074f09f597377c2de2e&hash=b56f7652bfdca8422b2552da4819dc2f';
 
   constructor(private http: HttpClient) {}
 
@@ -22,29 +20,20 @@ export class HeroService {
     }
     return this.http
       .get<Hero>(
-        this.heroesURL +
-          this.ts +
-          this.apikey +
-          this.hash +
-          '&offset=' +
-          offset +
-          '&limit=' +
-          '12'
+        this.heroesURL + this.params + '&offset=' + offset + '&limit=' + '12'
       )
       .pipe(map((resp: Hero) => resp.data.results));
   }
 
   public getHeroesPaginate(offset: number): Observable<Results[]> {
     return this.http
-      .get<Hero>(
-        this.heroesURL + this.ts + this.apikey + this.hash + '&offset=' + offset
-      )
+      .get<Hero>(this.heroesURL + this.params + '&offset=' + offset)
       .pipe(map((resp: Hero) => resp.data.results));
   }
 
   public getHeroeById(id: number): Observable<Results[]> {
     return this.http
-      .get<Hero>(this.heroesURL + '/' + id + this.ts + this.apikey + this.hash)
+      .get<Hero>(this.heroesURL + '/' + id + this.params)
       .pipe(map((resp: Hero) => resp.data.results));
   }
 
@@ -54,14 +43,7 @@ export class HeroService {
     }
 
     return this.http
-      .get<Hero>(
-        this.heroesURL +
-          this.ts +
-          this.apikey +
-          this.hash +
-          '&nameStartsWith=' +
-          input
-      )
+      .get<Hero>(this.heroesURL + this.params + '&nameStartsWith=' + input)
       .pipe(map((resp: Hero) => resp.data.results));
   }
 }
