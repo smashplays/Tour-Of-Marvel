@@ -15,13 +15,13 @@
 </ul>
 
 <div
-  class="p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5"
+  class="justify-items-center p-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-5"
 >
   <div
     *ngFor="let heroeDeLaLista of heroes"
     class="rounded overflow-hidden shadow-xs"
   >
-    <a routerLink="/detail/{{ heroeDeLaLista.id }}"
+    <a routerLink="/detail/{{ heroeDeLaLista.id }}" class="w-[379px]"
       ><img
         class="w-[379px] h-[379px]"
         src="{{ heroeDeLaLista.thumbnail.path }}.{{
